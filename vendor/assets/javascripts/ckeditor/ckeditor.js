@@ -660,8 +660,15 @@ b._.storedDialogs.colordialog)e(b._.storedDialogs.colordialog);else CKEDITOR.on(
 				toolbar:"doctools,10"
 			});
 		}
+	});
+	var c={},f={};
+	CKEDITOR.addTemplates=function(a,d){c[a]=d};
+	CKEDITOR.getTemplates=function(a){return c[a]};
+	CKEDITOR.loadTemplates=function(a,d){
+		for(var e=[],b=0,c=a.length;b<c;b++)f[a[b]]||(e.push(a[b]),f[a[b]]=1);
+		e.length?CKEDITOR.scriptLoader.load(e,d):setTimeout(d,0)
 	}
-);
+})();
 (function(){CKEDITOR.plugins.add("templates",{requires:"dialog",init:function(a){CKEDITOR.dialog.add("templates",CKEDITOR.getUrl(this.path+"dialogs/templates.js"));a.addCommand("templates",new CKEDITOR.dialogCommand("templates"));a.ui.addButton&&a.ui.addButton("Templates",{label:a.lang.templates.button,command:"templates",toolbar:"doctools,10"})}});var c={},f={};CKEDITOR.addTemplates=function(a,d){c[a]=d};CKEDITOR.getTemplates=function(a){return c[a]};CKEDITOR.loadTemplates=function(a,d){for(var e=
 [],b=0,c=a.length;b<c;b++)f[a[b]]||(e.push(a[b]),f[a[b]]=1);e.length?CKEDITOR.scriptLoader.load(e,d):setTimeout(d,0)}})();CKEDITOR.config.templates_files=[CKEDITOR.getUrl("plugins/templates/templates/default.js")];CKEDITOR.config.templates_replaceContent=!0;CKEDITOR.plugins.add("menu",{requires:"floatpanel",beforeInit:function(g){for(var h=g.config.menu_groups.split(","),m=g._.menuGroups={},l=g._.menuItems={},a=0;a<h.length;a++)m[h[a]]=a+1;g.addMenuGroup=function(b,a){m[b]=a||100};g.addMenuItem=function(a,c){m[c.group]&&(l[a]=new CKEDITOR.menuItem(this,a,c))};g.addMenuItems=function(a){for(var c in a)this.addMenuItem(c,a[c])};g.getMenuItem=function(a){return l[a]};g.removeMenuItem=function(a){delete l[a]}}});
 (function(){function g(a){a.sort(function(a,c){return a.group<c.group?-1:a.group>c.group?1:a.order<c.order?-1:a.order>c.order?1:0})}var h='<span class="cke_menuitem"><a id="{id}" class="cke_menubutton cke_menubutton__{name} cke_menubutton_{state} {cls}" href="{href}" title="{title}" tabindex="-1"_cke_focus=1 hidefocus="true" role="{role}" aria-haspopup="{hasPopup}" aria-disabled="{disabled}" {ariaChecked}';if(CKEDITOR.env.opera||CKEDITOR.env.gecko&&CKEDITOR.env.mac)h+=' onkeypress="return false;"';
