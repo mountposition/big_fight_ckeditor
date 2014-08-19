@@ -656,7 +656,7 @@ b._.storedDialogs.colordialog)e(b._.storedDialogs.colordialog);else CKEDITOR.on(
 			a.addCommand("ctemplates",new CKEDITOR.dialogCommand("ctemplates"));
 			a.ui.addButton&&a.ui.addButton("CTemplates",{
 				label:a.lang.templates.button,
-				command:"templates",
+				command:"ctemplates",
 				toolbar:"doctools,10"
 			});
 		}
