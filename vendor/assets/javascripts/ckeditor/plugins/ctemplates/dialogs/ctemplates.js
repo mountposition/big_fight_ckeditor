@@ -5,7 +5,6 @@
 
 (function() {
 	var doc = CKEDITOR.document;
-
 	CKEDITOR.dialog.add( 'ctemplates', function( editor ) {
 		// Constructs the HTML view of the specified templates data.
 		function renderTemplatesList( container, templatesDefinitions ) {
@@ -179,10 +178,8 @@
 			onShow: function() {
 				var templatesListField = this.getContentElement( 'selectTpl', 'templatesList' );
 				listContainer = templatesListField.getElement();
-
-				CKEDITOR.loadTemplates( config.c_templates_files, function() {
-					var templates = ( config.templates || 'default' ).split( ',' );
-
+				CKEDITOR.loadCTemplates( config.c_templates_files, function() {
+					var templates = ( config.ctemplates || 'custom' ).split( ',' );
 					if ( templates.length ) {
 						renderTemplatesList( listContainer, templates );
 						templatesListField.focus();
